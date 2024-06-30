@@ -1,0 +1,74 @@
+<header
+			id="hidden-nav"
+			class="hide">
+			<div class="hidden-navbar">
+				<h2>Bloggin Platform</h2>
+				<p>
+					Suppablog is simple and yet cool wordpress theme to lorem ipsum dolor
+					sit.
+				</p>
+				<ul>
+					<li>
+						<a href="/"> Home </a>
+					</li>
+					<li>
+						<a href=""> About </a>
+					</li>
+					<li>
+						<a href=""> Scroll </a>
+					</li>
+					<li>
+						<a href=""> Contact </a>
+					</li>
+				</ul>
+			</div>
+
+			<nav>
+				<ul>
+					<li>
+						<a href="">
+							<img
+								src=""
+								alt="" />
+						</a>
+					</li>
+					<li id="navbutton"> 
+					
+							<i class="bi bi-list"></i>
+
+					</li>
+					<li> 
+						<a href="/">
+							<i class="bi bi-house-door-fill"></i>
+
+						</a>
+					</li>
+					<li> 
+						<a href="">
+							<i class="bi bi-linkedin"></i>
+
+						</a>
+					</li>
+					<li> 
+						<a href="">
+							<i class="bi bi-twitter-x"></i>
+
+						</a>
+					</li>
+					<li> 
+						<a href="">
+							<i class="bi bi-github"></i>
+
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<script>
+			const navbutton = document.getElementById('navbutton');
+
+			navbutton.addEventListener('click', () => {
+				const hiddenNav = document.getElementById('hidden-nav');
+				hiddenNav.classList.toggle('hide');
+			});
+		</script>
