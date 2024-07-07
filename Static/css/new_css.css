@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 :root {
     --obsidian: RGB(26, 26, 26);
 }
@@ -145,7 +147,7 @@ main>div:first-child {
     display: flex;
     flex-direction: column;
     padding-block: 8rem;
-    padding-inline: 7rem;
+    padding-inline: 7rem 1rem;
 }
 
 main>div+div {
