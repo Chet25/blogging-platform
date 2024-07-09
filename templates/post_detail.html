@@ -32,7 +32,7 @@
 				{% if post.image_path %}
 				<div class="post-image my-4">
 					<img
-						src={{post.image_path}}
+						src="{{ url_for('static', filename='images/' + post.image_path) }}"
 						alt="{{ post.title }}"
 						class="w-full h-auto rounded-lg" />
 				</div>
@@ -62,7 +62,3 @@
 		</div>
 	</body>
 </html>
-
-
-
-

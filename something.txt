@@ -171,4 +171,3 @@ Motherhood is a journey of love, sacrifice, and joy. It is a role that shapes bo
 
 
 
-src="{{ url_for('static', filename=post.image_path) }}"
