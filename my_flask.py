@@ -52,9 +52,8 @@ def post_detail(post_id):
     if connection:
         cursor = connection.cursor(dictionary=True)
         try:
-            # Fetch post details
             cursor.execute("""
-                SELECT posts.id, posts.title, posts.content, users.username AS author_name
+                SELECT posts.id, posts.title, posts.content, posts.image_path, users.username AS author_name
                 FROM posts
                 JOIN users ON posts.author_id = users.id
                 WHERE posts.id = %s
@@ -62,11 +61,9 @@ def post_detail(post_id):
             post = cursor.fetchone()
 
             if post:
-                # Fetch comments for the current post
                 post['comments'] = fetch_comments_for_post(post_id, connection)
             else:
                 post = None
-
         except Error as e:
             print(f"Error fetching data: {e}")
             post = None
@@ -77,6 +74,7 @@ def post_detail(post_id):
         post = None
 
     return render_template('post_detail.html', post=post)
+
 
 
 def fetch_comments_for_post(post_id, connection):

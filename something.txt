@@ -161,3 +161,14 @@ This lifelong bond is a source of strength and comfort for both mother and child
 Conclusion
 Motherhood is a journey of love, sacrifice, and joy. It is a role that shapes both mother and child, creating a bond that lasts a lifetime. From the early days of sleepless nights to the proud moments of watching a child achieve their dreams, motherhood is filled with challenges and triumphs that make the journey worthwhile. Through it all, the unwavering love and support of a mother are the foundation upon which children grow and thrive. As we celebrate the beauty of motherhood, we honor the strength, resilience, and boundless love that define this remarkable journey.
 
+
+
+
+
+
+
+
+
+
+
+src="{{ url_for('static', filename=post.image_path) }}"

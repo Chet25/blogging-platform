@@ -19,19 +19,50 @@
 	<body>
 		{% include 'components/header.html' %}
 
-		<div class="posting" id="content">
-            <div class="wrapper">
-                <h1 class="main-heading">{{ post.title }}</h1>
-			<div class="main-author flex gap-2">
-				<p class="font-bold">
-                    {{ post.author_name }}
-                </p>
-				<span> 
-                    date 
-                </span>
+		<div
+			class="posting"
+			id="content">
+			<div class="wrapper">
+				<h1 class="main-heading">{{ post.title }}</h1>
+				<div class="main-author flex gap-2">
+					<p class="font-bold">{{ post.author_name }}</p>
+					<span> date </span>
+				</div>
+
+				{% if post.image_path %}
+				<div class="post-image my-4">
+					<img
+						src={{post.image_path}}
+						alt="{{ post.title }}"
+						class="w-full h-auto rounded-lg" />
+				</div>
+				{% endif %}
+
+				<div class="post-content">{{ post.content }}</div>
+
+				<!-- add comments here -->
+				<div class="comments-section mt-8">
+					<h2 class="text-2xl font-bold mb-4">Comments</h2>
+					{% if post.comments %}
+					<div class="comments-list">
+						{% for comment in post.comments %}
+						<div class="comment mb-4 p-4 border border-gray-200 rounded">
+							<div class="comment-author font-bold">
+								{{ comment.author_name }}
+							</div>
+							<div class="comment-content mt-2">{{ comment.content }}</div>
+						</div>
+						{% endfor %}
+					</div>
+					{% else %}
+					<p class="text-gray-500">No comments yet. Be the first to comment!</p>
+					{% endif %}
+				</div>
 			</div>
-			<div class="post-content">{{ post.content }}</div>
-            </div>
 		</div>
 	</body>
 </html>
+
+
+
+

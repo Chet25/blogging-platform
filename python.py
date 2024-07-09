@@ -181,10 +181,10 @@ def main():
 
             # Insert new comments
             comments_to_insert = [
-                ("Indeed nature is beautiful and colorful like the flowers!", 1, 1),  # Comment content, post ID, author ID
-                ("Aaahhh sky is my fav! and especially at night.", 2, 2),
-                ("Love, Laughter and memories!", 3, 3),
-                ("Greatest feeling and joy of all time!", 4, 4)
+                ("Indeed nature is beautiful and colorful like the flowers!", 1, 3),  # Comment content, post ID, author ID
+                ("Aaahhh sky is my fav! and especially at night.", 2, 1),
+                ("Love, Laughter and memories!", 3, 4),
+                ("Greatest feeling and joy of all time!", 4, 2)
             ]
             for comment in comments_to_insert:
                 success = data_manager.insert_comment(*comment)
