@@ -1,9 +1,8 @@
-import flask
 from flask import Flask, render_template
 import mysql.connector
 from mysql.connector import Error
 
-app = Flask(__name__)  
+app = Flask(__name__)
 
 # Database connection parameters
 db_config = {
@@ -14,6 +13,8 @@ db_config = {
 }
 
 # Database connection function
+
+
 def get_db_connection():
     try:
         connection = mysql.connector.connect(**db_config)
@@ -22,6 +23,7 @@ def get_db_connection():
     except Error as e:
         print(f"Error connecting to MySQL: {e}")
         return None
+
 
 @app.route('/')
 def index():
@@ -53,7 +55,7 @@ def post_detail(post_id):
         cursor = connection.cursor(dictionary=True)
         try:
             cursor.execute("""
-                SELECT posts.id, posts.title, posts.content, posts.image_path, users.username AS author_name
+                SELECT posts.id, posts.title, posts.content, users.username AS author_name
                 FROM posts
                 JOIN users ON posts.author_id = users.id
                 WHERE posts.id = %s
@@ -74,7 +76,6 @@ def post_detail(post_id):
         post = None
 
     return render_template('post_detail.html', post=post)
-
 
 
 def fetch_comments_for_post(post_id, connection):

@@ -29,14 +29,11 @@
 					<span> date </span>
 				</div>
 
-				{% if post.image_path %}
-				<div class="post-image my-4">
-					<img
-						src="{{ url_for('static', filename='images/' + post.image_path) }}"
-						alt="{{ post.title }}"
-						class="w-full h-auto rounded-lg" />
+			
+			<div class="post-image my-4">
+					<img src="../static/images/{{ post.title | lower | replace(' ', '-') }}.webp" alt="{{ post.title }}">
 				</div>
-				{% endif %}
+
 
 				<div class="post-content">{{ post.content }}</div>
 
