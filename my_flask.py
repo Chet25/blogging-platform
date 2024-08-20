@@ -8,13 +8,11 @@ app = Flask(__name__)
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'password': '2512',
+    'password': '',  # Make sure your MySQL root user password is correct
     'database': 'blogging_platform'
 }
 
 # Database connection function
-
-
 def get_db_connection():
     try:
         connection = mysql.connector.connect(**db_config)
@@ -23,7 +21,6 @@ def get_db_connection():
     except Error as e:
         print(f"Error connecting to MySQL: {e}")
         return None
-
 
 @app.route('/')
 def index():
@@ -46,7 +43,6 @@ def index():
     else:
         posts = []
     return render_template('index.html', posts=posts)
-
 
 @app.route('/post/<int:post_id>')
 def post_detail(post_id):
@@ -77,7 +73,6 @@ def post_detail(post_id):
 
     return render_template('post_detail.html', post=post)
 
-
 def fetch_comments_for_post(post_id, connection):
     try:
         cursor = connection.cursor(dictionary=True)
@@ -94,6 +89,5 @@ def fetch_comments_for_post(post_id, connection):
         print(f"Error fetching comments for post {post_id}: {e}")
         return []
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
